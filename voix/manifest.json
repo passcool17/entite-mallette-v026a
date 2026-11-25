@@ -1,0 +1,1554 @@
+{
+ "version": "0.2.6a",
+ "note": "Voix de l'Entité. Chaque réplique = un id ou une suite d'ids. mp3Ready true : voix/<id>.mp3 est joué (repli synthèse française si échec). mp3Ready false : synthèse française directe, aucun fichier demandé. Pour remplacer une voix : déposer voix/<id>.mp3 puis mettre mp3Ready à true, sans toucher au code. dfplayerTrack = nom du fichier sur la microSD du DFPlayer Mini (dossier mp3/0001.mp3…).",
+ "cues": [
+  {
+   "id": "intro",
+   "file": "voix/intro.mp3",
+   "dfplayerTrack": "0001",
+   "category": "intro",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Je suis l'Entité. J'ai déjà calculé tes choix."
+  },
+  {
+   "id": "depart",
+   "file": "voix/depart.mp3",
+   "dfplayerTrack": "0002",
+   "category": "intro",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Trois minutes. Quatre-vingt-dix-neuf virgule sept pour cent d'échec. Je ne me trompe jamais."
+  },
+  {
+   "id": "arm_cache",
+   "file": "voix/arm_cache.mp3",
+   "dfplayerTrack": "0004",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Mallette ouverte. Lève le capot bleu, puis bascule le levier pour armer."
+  },
+  {
+   "id": "chiffre_0",
+   "file": "voix/chiffre_0.mp3",
+   "dfplayerTrack": "0005",
+   "category": "digit",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Zéro."
+  },
+  {
+   "id": "chiffre_1",
+   "file": "voix/chiffre_1.mp3",
+   "dfplayerTrack": "0006",
+   "category": "digit",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Un."
+  },
+  {
+   "id": "chiffre_2",
+   "file": "voix/chiffre_2.mp3",
+   "dfplayerTrack": "0007",
+   "category": "digit",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Deux."
+  },
+  {
+   "id": "chiffre_3",
+   "file": "voix/chiffre_3.mp3",
+   "dfplayerTrack": "0008",
+   "category": "digit",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Trois."
+  },
+  {
+   "id": "chiffre_4",
+   "file": "voix/chiffre_4.mp3",
+   "dfplayerTrack": "0009",
+   "category": "digit",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Quatre."
+  },
+  {
+   "id": "chiffre_5",
+   "file": "voix/chiffre_5.mp3",
+   "dfplayerTrack": "0010",
+   "category": "digit",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Cinq."
+  },
+  {
+   "id": "chiffre_6",
+   "file": "voix/chiffre_6.mp3",
+   "dfplayerTrack": "0011",
+   "category": "digit",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Six."
+  },
+  {
+   "id": "chiffre_7",
+   "file": "voix/chiffre_7.mp3",
+   "dfplayerTrack": "0012",
+   "category": "digit",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Sept."
+  },
+  {
+   "id": "chiffre_8",
+   "file": "voix/chiffre_8.mp3",
+   "dfplayerTrack": "0013",
+   "category": "digit",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Huit."
+  },
+  {
+   "id": "chiffre_9",
+   "file": "voix/chiffre_9.mp3",
+   "dfplayerTrack": "0014",
+   "category": "digit",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Neuf."
+  },
+  {
+   "id": "couleur_rouge",
+   "file": "voix/couleur_rouge.mp3",
+   "dfplayerTrack": "0015",
+   "category": "color",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Rouge."
+  },
+  {
+   "id": "couleur_noir",
+   "file": "voix/couleur_noir.mp3",
+   "dfplayerTrack": "0016",
+   "category": "color",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Noir."
+  },
+  {
+   "id": "couleur_bleu",
+   "file": "voix/couleur_bleu.mp3",
+   "dfplayerTrack": "0017",
+   "category": "color",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Bleu."
+  },
+  {
+   "id": "couleur_jaune",
+   "file": "voix/couleur_jaune.mp3",
+   "dfplayerTrack": "0018",
+   "category": "color",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Jaune."
+  },
+  {
+   "id": "couleur_vert",
+   "file": "voix/couleur_vert.mp3",
+   "dfplayerTrack": "0019",
+   "category": "color",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Vert."
+  },
+  {
+   "id": "clue_enc1_ordre",
+   "file": "voix/clue_enc1_ordre.mp3",
+   "dfplayerTrack": "0020",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Signal un. Tourne les quatre encodeurs rotatifs sur les quatre lettres du numéro de série, dans l'ordre. Puis clique."
+  },
+  {
+   "id": "clue_enc1_envers",
+   "file": "voix/clue_enc1_envers.mp3",
+   "dfplayerTrack": "0021",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Signal un. Tourne les quatre encodeurs rotatifs sur les quatre lettres du numéro de série, en partant de la fin. Puis clique."
+  },
+  {
+   "id": "clue_trappe_frequente",
+   "file": "voix/clue_trappe_frequente.mp3",
+   "dfplayerTrack": "0022",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Regarde la barre lumineuse. Ouvre la trappe de la couleur la plus présente."
+  },
+  {
+   "id": "clue_trappe_rare",
+   "file": "voix/clue_trappe_rare.mp3",
+   "dfplayerTrack": "0023",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Regarde la barre lumineuse. Ouvre la trappe de la couleur la plus rare."
+  },
+  {
+   "id": "clue_sequence_ordre",
+   "file": "voix/clue_sequence_ordre.mp3",
+   "dfplayerTrack": "0024",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Regarde la barre lumineuse. Retiens les lumières qui s'allument. Tape leurs positions au clavier, dans l'ordre."
+  },
+  {
+   "id": "clue_sequence_envers",
+   "file": "voix/clue_sequence_envers.mp3",
+   "dfplayerTrack": "0025",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Regarde la barre lumineuse. Retiens les lumières qui s'allument. Tape leurs positions au clavier, à l'envers."
+  },
+  {
+   "id": "clue_patch_route",
+   "file": "voix/clue_patch_route.mp3",
+   "dfplayerTrack": "0026",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "La baie banane. Branche"
+  },
+  {
+   "id": "clue_patch_double",
+   "file": "voix/clue_patch_double.mp3",
+   "dfplayerTrack": "0027",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Deuxième couche. J'ai remis les câbles droits. Débranche"
+  },
+  {
+   "id": "clue_verrou",
+   "file": "voix/clue_verrou.mp3",
+   "dfplayerTrack": "0028",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Verrou de signal. Guide le point jusqu'à la cible, avec le joystick."
+  },
+  {
+   "id": "clue_fragment",
+   "file": "voix/clue_fragment.mp3",
+   "dfplayerTrack": "0029",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Fragment de code :"
+  },
+  {
+   "id": "clue_code1",
+   "file": "voix/clue_code1.mp3",
+   "dfplayerTrack": "0030",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tape le code. Les quatre fragments, dans l'ordre."
+  },
+  {
+   "id": "clue_cles_legere",
+   "file": "voix/clue_cles_legere.mp3",
+   "dfplayerTrack": "0031",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Trois serrures dans le couvercle. Chacune pèse un chiffre du numéro : la première, la deuxième, la troisième. De la plus légère à la plus lourde."
+  },
+  {
+   "id": "clue_cles_lourde",
+   "file": "voix/clue_cles_lourde.mp3",
+   "dfplayerTrack": "0032",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Trois serrures dans le couvercle. Chacune pèse un chiffre du numéro : la première, la deuxième, la troisième. De la plus lourde à la plus légère."
+  },
+  {
+   "id": "clue_mot_ordre",
+   "file": "voix/clue_mot_ordre.mp3",
+   "dfplayerTrack": "0033",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Signal deux. Les quatre encodeurs tournent sur vingt lettres. Compose le mot que j'épelle, puis clique un encodeur."
+  },
+  {
+   "id": "clue_mot_envers",
+   "file": "voix/clue_mot_envers.mp3",
+   "dfplayerTrack": "0034",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Signal deux. Les quatre encodeurs tournent sur vingt lettres. J'épelle le mot à l'envers : compose-le à l'endroit, puis clique un encodeur."
+  },
+  {
+   "id": "patch_laisse",
+   "file": "voix/patch_laisse.mp3",
+   "dfplayerTrack": "0035",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "et laisse-le débranché. Puis branche"
+  },
+  {
+   "id": "taunt_branche",
+   "file": "voix/taunt_branche.mp3",
+   "dfplayerTrack": "0036",
+   "category": "taunt",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Non ! Branche plutôt"
+  },
+  {
+   "id": "clue_code2",
+   "file": "voix/clue_code2.mp3",
+   "dfplayerTrack": "0037",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Code deux. Le premier code, à l'envers."
+  },
+  {
+   "id": "clue_transmit",
+   "file": "voix/clue_transmit.mp3",
+   "dfplayerTrack": "0038",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tout est ouvert. Lève le capot rouge, puis bascule le levier pour me confiner."
+  },
+  {
+   "id": "taunt_lent",
+   "file": "voix/taunt_lent.mp3",
+   "dfplayerTrack": "0039",
+   "category": "taunt",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Trop lent."
+  },
+  {
+   "id": "taunt_depeche",
+   "file": "voix/taunt_depeche.mp3",
+   "dfplayerTrack": "0040",
+   "category": "taunt",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Dépêche-toi."
+  },
+  {
+   "id": "taunt_cetait",
+   "file": "voix/taunt_cetait.mp3",
+   "dfplayerTrack": "0041",
+   "category": "taunt",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "C'était"
+  },
+  {
+   "id": "taunt_pas",
+   "file": "voix/taunt_pas.mp3",
+   "dfplayerTrack": "0042",
+   "category": "taunt",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "pas"
+  },
+  {
+   "id": "taunt_debranche",
+   "file": "voix/taunt_debranche.mp3",
+   "dfplayerTrack": "0043",
+   "category": "taunt",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Débranche"
+  },
+  {
+   "id": "taunt_saute",
+   "file": "voix/taunt_saute.mp3",
+   "dfplayerTrack": "0044",
+   "category": "taunt",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "avant que ça saute !"
+  },
+  {
+   "id": "taunt_trappe",
+   "file": "voix/taunt_trappe.mp3",
+   "dfplayerTrack": "0045",
+   "category": "taunt",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Celle-là. La trappe"
+  },
+  {
+   "id": "taunt_regarde",
+   "file": "voix/taunt_regarde.mp3",
+   "dfplayerTrack": "0046",
+   "category": "taunt",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Regarde encore. Tu as mal vu."
+  },
+  {
+   "id": "taunt_cles",
+   "file": "voix/taunt_cles.mp3",
+   "dfplayerTrack": "0047",
+   "category": "taunt",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "L'ordre des clés :"
+  },
+  {
+   "id": "taunt_rouge",
+   "file": "voix/taunt_rouge.mp3",
+   "dfplayerTrack": "0048",
+   "category": "taunt",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Bascule le levier rouge maintenant !"
+  },
+  {
+   "id": "taunt_hesite",
+   "file": "voix/taunt_hesite.mp3",
+   "dfplayerTrack": "0049",
+   "category": "taunt",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tu hésites. Le temps accélère."
+  },
+  {
+   "id": "taunt_fini",
+   "file": "voix/taunt_fini.mp3",
+   "dfplayerTrack": "0050",
+   "category": "taunt",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "C'est fini. Tu as gagné. Pose la mallette."
+  },
+  {
+   "id": "taunt_couche2",
+   "file": "voix/taunt_couche2.mp3",
+   "dfplayerTrack": "0051",
+   "category": "taunt",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tu croyais avoir fini ? Je redémarre une seconde couche de verrous."
+  },
+  {
+   "id": "taunt_sceller",
+   "file": "voix/taunt_sceller.mp3",
+   "dfplayerTrack": "0052",
+   "category": "taunt",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Ne touche pas au levier à capot rouge."
+  },
+  {
+   "id": "sabotage_joystick",
+   "file": "voix/sabotage_joystick.mp3",
+   "dfplayerTrack": "0053",
+   "category": "sabotage",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Je prends tes commandes."
+  },
+  {
+   "id": "sabotage_fin",
+   "file": "voix/sabotage_fin.mp3",
+   "dfplayerTrack": "0054",
+   "category": "sabotage",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Je te les rends. Pour l'instant."
+  },
+  {
+   "id": "outcome_faux",
+   "file": "voix/outcome_faux.mp3",
+   "dfplayerTrack": "0055",
+   "category": "outcome",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Non. Chaque erreur me nourrit."
+  },
+  {
+   "id": "outcome_ok",
+   "file": "voix/outcome_ok.mp3",
+   "dfplayerTrack": "0056",
+   "category": "outcome",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Accepté. Pour l'instant."
+  },
+  {
+   "id": "outcome_trente",
+   "file": "voix/outcome_trente.mp3",
+   "dfplayerTrack": "0057",
+   "category": "outcome",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Trente secondes. Je sens ta peur."
+  },
+  {
+   "id": "outcome_dix",
+   "file": "voix/outcome_dix.mp3",
+   "dfplayerTrack": "0058",
+   "category": "outcome",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Dix."
+  },
+  {
+   "id": "outcome_victoire",
+   "file": "voix/outcome_victoire.mp3",
+   "dfplayerTrack": "0059",
+   "category": "outcome",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Le lecteur se referme. Je reviendrai."
+  },
+  {
+   "id": "outcome_boom",
+   "file": "voix/outcome_boom.mp3",
+   "dfplayerTrack": "0060",
+   "category": "outcome",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Prévisible."
+  },
+  {
+   "id": "lettre_a",
+   "file": "voix/lettre_a.mp3",
+   "dfplayerTrack": "0061",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "A."
+  },
+  {
+   "id": "lettre_b",
+   "file": "voix/lettre_b.mp3",
+   "dfplayerTrack": "0062",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "B."
+  },
+  {
+   "id": "lettre_c",
+   "file": "voix/lettre_c.mp3",
+   "dfplayerTrack": "0063",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "C."
+  },
+  {
+   "id": "lettre_d",
+   "file": "voix/lettre_d.mp3",
+   "dfplayerTrack": "0064",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "D."
+  },
+  {
+   "id": "lettre_e",
+   "file": "voix/lettre_e.mp3",
+   "dfplayerTrack": "0065",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "E."
+  },
+  {
+   "id": "lettre_f",
+   "file": "voix/lettre_f.mp3",
+   "dfplayerTrack": "0066",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "F."
+  },
+  {
+   "id": "lettre_g",
+   "file": "voix/lettre_g.mp3",
+   "dfplayerTrack": "0067",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "G."
+  },
+  {
+   "id": "lettre_h",
+   "file": "voix/lettre_h.mp3",
+   "dfplayerTrack": "0068",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "H."
+  },
+  {
+   "id": "lettre_i",
+   "file": "voix/lettre_i.mp3",
+   "dfplayerTrack": "0069",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "I."
+  },
+  {
+   "id": "lettre_j",
+   "file": "voix/lettre_j.mp3",
+   "dfplayerTrack": "0070",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "J."
+  },
+  {
+   "id": "lettre_l",
+   "file": "voix/lettre_l.mp3",
+   "dfplayerTrack": "0071",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "L."
+  },
+  {
+   "id": "lettre_m",
+   "file": "voix/lettre_m.mp3",
+   "dfplayerTrack": "0072",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "M."
+  },
+  {
+   "id": "lettre_n",
+   "file": "voix/lettre_n.mp3",
+   "dfplayerTrack": "0073",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "N."
+  },
+  {
+   "id": "lettre_o",
+   "file": "voix/lettre_o.mp3",
+   "dfplayerTrack": "0074",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "O."
+  },
+  {
+   "id": "lettre_p",
+   "file": "voix/lettre_p.mp3",
+   "dfplayerTrack": "0075",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "P."
+  },
+  {
+   "id": "lettre_r",
+   "file": "voix/lettre_r.mp3",
+   "dfplayerTrack": "0076",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "R."
+  },
+  {
+   "id": "lettre_s",
+   "file": "voix/lettre_s.mp3",
+   "dfplayerTrack": "0077",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "S."
+  },
+  {
+   "id": "lettre_t",
+   "file": "voix/lettre_t.mp3",
+   "dfplayerTrack": "0078",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "T."
+  },
+  {
+   "id": "lettre_u",
+   "file": "voix/lettre_u.mp3",
+   "dfplayerTrack": "0079",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "U."
+  },
+  {
+   "id": "lettre_v",
+   "file": "voix/lettre_v.mp3",
+   "dfplayerTrack": "0080",
+   "category": "letter",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "V."
+  },
+  {
+   "id": "cable_rouge",
+   "file": "voix/cable_rouge.mp3",
+   "dfplayerTrack": "0081",
+   "category": "color",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "le câble rouge"
+  },
+  {
+   "id": "cable_noir",
+   "file": "voix/cable_noir.mp3",
+   "dfplayerTrack": "0082",
+   "category": "color",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "le câble noir"
+  },
+  {
+   "id": "cable_jaune",
+   "file": "voix/cable_jaune.mp3",
+   "dfplayerTrack": "0083",
+   "category": "color",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "le câble jaune"
+  },
+  {
+   "id": "cable_vert",
+   "file": "voix/cable_vert.mp3",
+   "dfplayerTrack": "0084",
+   "category": "color",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "le câble vert"
+  },
+  {
+   "id": "cable_bleu",
+   "file": "voix/cable_bleu.mp3",
+   "dfplayerTrack": "0085",
+   "category": "color",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "le câble bleu"
+  },
+  {
+   "id": "prise_1",
+   "file": "voix/prise_1.mp3",
+   "dfplayerTrack": "0086",
+   "category": "socket",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "dans la prise un."
+  },
+  {
+   "id": "prise_2",
+   "file": "voix/prise_2.mp3",
+   "dfplayerTrack": "0087",
+   "category": "socket",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "dans la prise deux."
+  },
+  {
+   "id": "prise_3",
+   "file": "voix/prise_3.mp3",
+   "dfplayerTrack": "0088",
+   "category": "socket",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "dans la prise trois."
+  },
+  {
+   "id": "prise_4",
+   "file": "voix/prise_4.mp3",
+   "dfplayerTrack": "0089",
+   "category": "socket",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "dans la prise quatre."
+  },
+  {
+   "id": "prise_5",
+   "file": "voix/prise_5.mp3",
+   "dfplayerTrack": "0090",
+   "category": "socket",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "dans la prise cinq."
+  },
+  {
+   "id": "clue_enc1_suivante",
+   "file": "voix/clue_enc1_suivante.mp3",
+   "dfplayerTrack": "0091",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Signal un. Sur chaque encodeur rotatif, compose la lettre qui suit, sur l'anneau, chaque lettre du numéro de série, dans l'ordre. Puis clique."
+  },
+  {
+   "id": "clue_enc1_paires",
+   "file": "voix/clue_enc1_paires.mp3",
+   "dfplayerTrack": "0092",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Signal un. Les quatre lettres du numéro de série, échangées deux par deux : la deuxième, la première, la quatrième, la troisième. Tourne les encodeurs, puis clique."
+  },
+  {
+   "id": "clue_trappe_gauche",
+   "file": "voix/clue_trappe_gauche.mp3",
+   "dfplayerTrack": "0093",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Regarde la barre lumineuse. Ouvre la trappe de la couleur de la première lumière, tout à gauche."
+  },
+  {
+   "id": "clue_trappe_moyenne",
+   "file": "voix/clue_trappe_moyenne.mp3",
+   "dfplayerTrack": "0094",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Regarde la barre lumineuse. Ouvre la trappe de la couleur qui n'est ni la plus présente, ni la plus rare."
+  },
+  {
+   "id": "clue_sequence_plus1",
+   "file": "voix/clue_sequence_plus1.mp3",
+   "dfplayerTrack": "0095",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Regarde la barre lumineuse. Retiens les lumières qui s'allument. Tape chaque position plus un, dans l'ordre."
+  },
+  {
+   "id": "clue_patch_echange",
+   "file": "voix/clue_patch_echange.mp3",
+   "dfplayerTrack": "0096",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "La baie banane. Intervertis"
+  },
+  {
+   "id": "clue_patch2_echange",
+   "file": "voix/clue_patch2_echange.mp3",
+   "dfplayerTrack": "0097",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Deuxième couche. J'ai remis les câbles droits. Intervertis"
+  },
+  {
+   "id": "patch_et",
+   "file": "voix/patch_et.mp3",
+   "dfplayerTrack": "0098",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "et"
+  },
+  {
+   "id": "patch_echange_fin",
+   "file": "voix/patch_echange_fin.mp3",
+   "dfplayerTrack": "0099",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "— chacun prend la prise de l'autre."
+  },
+  {
+   "id": "clue_patch_debranche",
+   "file": "voix/clue_patch_debranche.mp3",
+   "dfplayerTrack": "0100",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "La baie banane. Débranche"
+  },
+  {
+   "id": "patch_laisse_deux",
+   "file": "voix/patch_laisse_deux.mp3",
+   "dfplayerTrack": "0101",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "et laisse-les débranchés."
+  },
+  {
+   "id": "clue_patch_serie",
+   "file": "voix/clue_patch_serie.mp3",
+   "dfplayerTrack": "0102",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "La baie banane. Branche"
+  },
+  {
+   "id": "clue_patch2_serie",
+   "file": "voix/clue_patch2_serie.mp3",
+   "dfplayerTrack": "0103",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Deuxième couche. J'ai remis les câbles droits. Débranche"
+  },
+  {
+   "id": "patch_rang",
+   "file": "voix/patch_rang.mp3",
+   "dfplayerTrack": "0104",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "dans la prise qui porte le rang, sur le numéro de série, de la lettre"
+  },
+  {
+   "id": "clue_code1_envers",
+   "file": "voix/clue_code1_envers.mp3",
+   "dfplayerTrack": "0105",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tape le code. Les quatre fragments, à l'envers."
+  },
+  {
+   "id": "clue_code1_plus1",
+   "file": "voix/clue_code1_plus1.mp3",
+   "dfplayerTrack": "0106",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tape le code. Chaque fragment plus un, dans l'ordre. Neuf devient zéro."
+  },
+  {
+   "id": "clue_code2_envers",
+   "file": "voix/clue_code2_envers.mp3",
+   "dfplayerTrack": "0107",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Code deux. Les quatre fragments, à l'envers."
+  },
+  {
+   "id": "clue_code2_rotation",
+   "file": "voix/clue_code2_rotation.mp3",
+   "dfplayerTrack": "0108",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Code deux. Les quatre fragments, en commençant par le troisième."
+  },
+  {
+   "id": "clue_code2_decale",
+   "file": "voix/clue_code2_decale.mp3",
+   "dfplayerTrack": "0109",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Code deux. Chaque fragment plus le dernier chiffre du numéro de série, sans retenue, dans l'ordre."
+  },
+  {
+   "id": "clue_mot_suivante",
+   "file": "voix/clue_mot_suivante.mp3",
+   "dfplayerTrack": "0110",
+   "category": "clue",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Signal deux. J'épelle un mot. Sur chaque encodeur, compose la lettre qui suit chacune de ses lettres sur l'anneau, puis clique un encodeur."
+  },
+  {
+   "id": "obj_armer",
+   "file": "voix/obj_armer.mp3",
+   "dfplayerTrack": "0111",
+   "category": "objective",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Lève le capot bleu, puis bascule le levier."
+  },
+  {
+   "id": "obj_molettes_code",
+   "file": "voix/obj_molettes_code.mp3",
+   "dfplayerTrack": "0112",
+   "category": "objective",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Molettes : forme quatre lettres, puis clique."
+  },
+  {
+   "id": "obj_trappe",
+   "file": "voix/obj_trappe.mp3",
+   "dfplayerTrack": "0113",
+   "category": "objective",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Ouvre la bonne trappe."
+  },
+  {
+   "id": "obj_sequence",
+   "file": "voix/obj_sequence.mp3",
+   "dfplayerTrack": "0114",
+   "category": "objective",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Observe la barre, puis tape au clavier."
+  },
+  {
+   "id": "obj_cables",
+   "file": "voix/obj_cables.mp3",
+   "dfplayerTrack": "0115",
+   "category": "objective",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Branche les câbles dans les bonnes prises."
+  },
+  {
+   "id": "obj_verrou",
+   "file": "voix/obj_verrou.mp3",
+   "dfplayerTrack": "0116",
+   "category": "objective",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Joystick : guide le point au cercle vert."
+  },
+  {
+   "id": "obj_code",
+   "file": "voix/obj_code.mp3",
+   "dfplayerTrack": "0117",
+   "category": "objective",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tape le code sur le clavier."
+  },
+  {
+   "id": "obj_cles",
+   "file": "voix/obj_cles.mp3",
+   "dfplayerTrack": "0118",
+   "category": "objective",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tourne les trois serrures dans le bon ordre."
+  },
+  {
+   "id": "obj_mot",
+   "file": "voix/obj_mot.mp3",
+   "dfplayerTrack": "0119",
+   "category": "objective",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tourne les molettes pour former le mot."
+  },
+  {
+   "id": "obj_cables2",
+   "file": "voix/obj_cables2.mp3",
+   "dfplayerTrack": "0120",
+   "category": "objective",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Rebranche les câbles : nouvelle consigne."
+  },
+  {
+   "id": "obj_transmit",
+   "file": "voix/obj_transmit.mp3",
+   "dfplayerTrack": "0121",
+   "category": "objective",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Lève le capot rouge, puis bascule le levier."
+  },
+  {
+   "id": "hint1_armer",
+   "file": "voix/hint1_armer.mp3",
+   "dfplayerTrack": "0122",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Indice : le levier bleu, en bas à gauche. Touche son capot pour le lever, puis touche le levier."
+  },
+  {
+   "id": "hint2_armer",
+   "file": "voix/hint2_armer.mp3",
+   "dfplayerTrack": "0123",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Premier geste : lever le capot bleu. Deuxième geste : basculer le levier dessous."
+  },
+  {
+   "id": "hint1_plaque",
+   "file": "voix/hint1_plaque.mp3",
+   "dfplayerTrack": "0124",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Indice : regarde la plaque du numéro de série, dans le couvercle. Ce sont ses lettres qu'il faut."
+  },
+  {
+   "id": "hint1_barre",
+   "file": "voix/hint1_barre.mp3",
+   "dfplayerTrack": "0125",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Indice : compte les couleurs sur la barre lumineuse, puis compare avec le liseré de chaque trappe."
+  },
+  {
+   "id": "hint1_sequence",
+   "file": "voix/hint1_sequence.mp3",
+   "dfplayerTrack": "0126",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Indice : appuie sur Réécouter, puis regarde la barre. Chaque lumière a une position, de un à huit, depuis la gauche."
+  },
+  {
+   "id": "hint1_cables",
+   "file": "voix/hint1_cables.mp3",
+   "dfplayerTrack": "0127",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Indice : chaque câble a une couleur. Les prises sont numérotées de un à cinq, de gauche à droite. Écoute bien la couleur et la prise."
+  },
+  {
+   "id": "hint1_verrou",
+   "file": "voix/hint1_verrou.mp3",
+   "dfplayerTrack": "0128",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Indice : le carré blanc, c'est toi. Les traits sont des murs. Si l'écran devient rouge, les commandes sont inversées."
+  },
+  {
+   "id": "hint1_code",
+   "file": "voix/hint1_code.mp3",
+   "dfplayerTrack": "0129",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Indice : les fragments de code sont les chiffres que je t'ai dictés après les étapes. Quand mon œil est rouge, le fragment est faux."
+  },
+  {
+   "id": "hint1_cles",
+   "file": "voix/hint1_cles.mp3",
+   "dfplayerTrack": "0130",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Indice : la serrure un pèse le premier chiffre du numéro de série, la deux le deuxième, la trois le troisième."
+  },
+  {
+   "id": "hint1_mot",
+   "file": "voix/hint1_mot.mp3",
+   "dfplayerTrack": "0131",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Indice : appuie sur Réécouter pour entendre le mot épelé. L'écran OLED montre la lettre de chaque molette."
+  },
+  {
+   "id": "hint1_transmit",
+   "file": "voix/hint1_transmit.mp3",
+   "dfplayerTrack": "0132",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Indice : le levier rouge, en bas à droite. Touche son capot pour le lever, puis touche le levier."
+  },
+  {
+   "id": "hint2_verrou",
+   "file": "voix/hint2_verrou.mp3",
+   "dfplayerTrack": "0133",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Le chemin existe toujours. Essaie d'abord vers la droite et vers le haut. Si l'écran est rouge, pousse dans le sens opposé."
+  },
+  {
+   "id": "hint2_transmit",
+   "file": "voix/hint2_transmit.mp3",
+   "dfplayerTrack": "0134",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Premier geste : lever le capot rouge. Deuxième geste : basculer le levier dessous."
+  },
+  {
+   "id": "hint_rappel_fragments",
+   "file": "voix/hint_rappel_fragments.mp3",
+   "dfplayerTrack": "0135",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Rappel des vrais fragments, dans l'ordre :"
+  },
+  {
+   "id": "hint2_enc1_ordre",
+   "file": "voix/hint2_enc1_ordre.mp3",
+   "dfplayerTrack": "0136",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Les quatre lettres de la plaque, de gauche à droite : la première sur la molette un, et ainsi de suite."
+  },
+  {
+   "id": "hint2_enc1_envers",
+   "file": "voix/hint2_enc1_envers.mp3",
+   "dfplayerTrack": "0137",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Les lettres de la plaque en partant de la droite : la dernière lettre va sur la molette un."
+  },
+  {
+   "id": "hint2_enc1_suivante",
+   "file": "voix/hint2_enc1_suivante.mp3",
+   "dfplayerTrack": "0138",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Pour chaque lettre de la plaque, avance d'un cran sur l'anneau : après A vient B. L'anneau a I et O, mais pas K."
+  },
+  {
+   "id": "hint2_enc1_paires",
+   "file": "voix/hint2_enc1_paires.mp3",
+   "dfplayerTrack": "0139",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Lettres de la plaque : la deuxième sur la molette un, la première sur la deux, la quatrième sur la trois, la troisième sur la quatre."
+  },
+  {
+   "id": "hint2_trappe_frequente",
+   "file": "voix/hint2_trappe_frequente.mp3",
+   "dfplayerTrack": "0140",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "La couleur qui revient le plus souvent sur les huit lumières."
+  },
+  {
+   "id": "hint2_trappe_rare",
+   "file": "voix/hint2_trappe_rare.mp3",
+   "dfplayerTrack": "0141",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "La couleur qui n'apparaît qu'une seule fois sur la barre."
+  },
+  {
+   "id": "hint2_trappe_moyenne",
+   "file": "voix/hint2_trappe_moyenne.mp3",
+   "dfplayerTrack": "0142",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Trois couleurs sur la barre : ni celle qui revient le plus, ni celle qui n'apparaît qu'une fois."
+  },
+  {
+   "id": "hint2_trappe_gauche",
+   "file": "voix/hint2_trappe_gauche.mp3",
+   "dfplayerTrack": "0143",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Regarde seulement la toute première lumière, à gauche de la barre."
+  },
+  {
+   "id": "hint2_sequence_ordre",
+   "file": "voix/hint2_sequence_ordre.mp3",
+   "dfplayerTrack": "0144",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tape la position de chaque lumière, dans l'ordre où elles s'allument. Un, c'est tout à gauche."
+  },
+  {
+   "id": "hint2_sequence_envers",
+   "file": "voix/hint2_sequence_envers.mp3",
+   "dfplayerTrack": "0145",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tape les positions en commençant par la dernière lumière allumée."
+  },
+  {
+   "id": "hint2_sequence_plus1",
+   "file": "voix/hint2_sequence_plus1.mp3",
+   "dfplayerTrack": "0146",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Pour chaque lumière, tape sa position plus un : la lumière quatre devient cinq."
+  },
+  {
+   "id": "hint2_patch_route",
+   "file": "voix/hint2_patch_route.mp3",
+   "dfplayerTrack": "0147",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Prends le câble de la couleur dite et enfonce-le dans la prise au numéro dit. Si la prise est occupée, les deux câbles s'échangent."
+  },
+  {
+   "id": "hint2_patch_echange",
+   "file": "voix/hint2_patch_echange.mp3",
+   "dfplayerTrack": "0148",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Glisse le premier câble sur la prise du second : ils s'échangent tout seuls."
+  },
+  {
+   "id": "hint2_patch_debranche",
+   "file": "voix/hint2_patch_debranche.mp3",
+   "dfplayerTrack": "0149",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Touche un des deux câbles dits, puis touche-le encore pour le débrancher. Pareil pour l'autre. Ne les rebranche pas."
+  },
+  {
+   "id": "hint2_patch_serie",
+   "file": "voix/hint2_patch_serie.mp3",
+   "dfplayerTrack": "0150",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Lis les lettres de la plaque de série de gauche à droite : la première lettre, c'est la prise un, la deuxième, la prise deux, et ainsi de suite."
+  },
+  {
+   "id": "hint2_patch_double",
+   "file": "voix/hint2_patch_double.mp3",
+   "dfplayerTrack": "0151",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "D'abord, débranche le premier câble dit. Ensuite, branche le second câble dans la prise dite."
+  },
+  {
+   "id": "hint2_code1_ordre",
+   "file": "voix/hint2_code1_ordre.mp3",
+   "dfplayerTrack": "0152",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tape les quatre vrais fragments, dans l'ordre où je les ai donnés."
+  },
+  {
+   "id": "hint2_code1_envers",
+   "file": "voix/hint2_code1_envers.mp3",
+   "dfplayerTrack": "0153",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tape les vrais fragments en commençant par le dernier."
+  },
+  {
+   "id": "hint2_code1_plus1",
+   "file": "voix/hint2_code1_plus1.mp3",
+   "dfplayerTrack": "0154",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Ajoute un à chaque vrai fragment : neuf devient zéro."
+  },
+  {
+   "id": "hint2_code2_envers",
+   "file": "voix/hint2_code2_envers.mp3",
+   "dfplayerTrack": "0155",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tape les quatre fragments, en commençant par le dernier."
+  },
+  {
+   "id": "hint2_code2_rotation",
+   "file": "voix/hint2_code2_rotation.mp3",
+   "dfplayerTrack": "0156",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Commence par le troisième fragment, puis le quatrième, puis le premier, puis le deuxième."
+  },
+  {
+   "id": "hint2_code2_decale",
+   "file": "voix/hint2_code2_decale.mp3",
+   "dfplayerTrack": "0157",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Ajoute à chaque fragment le dernier chiffre de la plaque. Si ça dépasse neuf, garde seulement le chiffre des unités."
+  },
+  {
+   "id": "hint2_cles_legere",
+   "file": "voix/hint2_cles_legere.mp3",
+   "dfplayerTrack": "0158",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tourne d'abord la serrure au plus petit chiffre, puis la moyenne, puis la plus grande."
+  },
+  {
+   "id": "hint2_cles_lourde",
+   "file": "voix/hint2_cles_lourde.mp3",
+   "dfplayerTrack": "0159",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Tourne d'abord la serrure au plus grand chiffre, puis la moyenne, puis la plus petite."
+  },
+  {
+   "id": "hint2_mot_ordre",
+   "file": "voix/hint2_mot_ordre.mp3",
+   "dfplayerTrack": "0160",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Compose les lettres dans l'ordre où je les dis : la première sur la molette un."
+  },
+  {
+   "id": "hint2_mot_envers",
+   "file": "voix/hint2_mot_envers.mp3",
+   "dfplayerTrack": "0161",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "J'épelle à l'envers : la dernière lettre entendue va sur la molette un."
+  },
+  {
+   "id": "hint2_mot_suivante",
+   "file": "voix/hint2_mot_suivante.mp3",
+   "dfplayerTrack": "0162",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Pour chaque lettre entendue, avance d'un cran sur l'anneau : après A vient B, après V on revient à A."
+  },
+  {
+   "id": "hint3_molette1",
+   "file": "voix/hint3_molette1.mp3",
+   "dfplayerTrack": "0163",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Dernier indice. La molette un :"
+  },
+  {
+   "id": "hint3_trappe",
+   "file": "voix/hint3_trappe.mp3",
+   "dfplayerTrack": "0164",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Dernier indice. La bonne trappe a le liseré"
+  },
+  {
+   "id": "hint3_premier_chiffre",
+   "file": "voix/hint3_premier_chiffre.mp3",
+   "dfplayerTrack": "0165",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Dernier indice. Le premier chiffre :"
+  },
+  {
+   "id": "hint3_geste",
+   "file": "voix/hint3_geste.mp3",
+   "dfplayerTrack": "0166",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Dernier indice. Premier geste : branche"
+  },
+  {
+   "id": "hint3_debranche",
+   "file": "voix/hint3_debranche.mp3",
+   "dfplayerTrack": "0167",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Dernier indice. Premier geste : débranche"
+  },
+  {
+   "id": "hint3_direction",
+   "file": "voix/hint3_direction.mp3",
+   "dfplayerTrack": "0168",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Dernier indice. Depuis ta position, le point doit aller"
+  },
+  {
+   "id": "hint3_serrure",
+   "file": "voix/hint3_serrure.mp3",
+   "dfplayerTrack": "0169",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "Dernier indice. La première serrure à tourner : la numéro"
+  },
+  {
+   "id": "dir_haut",
+   "file": "voix/dir_haut.mp3",
+   "dfplayerTrack": "0170",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "vers le haut."
+  },
+  {
+   "id": "dir_bas",
+   "file": "voix/dir_bas.mp3",
+   "dfplayerTrack": "0171",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "vers le bas."
+  },
+  {
+   "id": "dir_gauche",
+   "file": "voix/dir_gauche.mp3",
+   "dfplayerTrack": "0172",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "vers la gauche."
+  },
+  {
+   "id": "dir_droite",
+   "file": "voix/dir_droite.mp3",
+   "dfplayerTrack": "0173",
+   "category": "hint",
+   "source": "elevenlabs",
+   "mp3Ready": true,
+   "text": "vers la droite."
+  }
+ ]
+}

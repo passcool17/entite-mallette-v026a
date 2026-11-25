@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>La mallette de l’Entité</title>
+  <meta name="description" content="Mallette d’espion sous l’œil de l’Entité : elle dicte, elle ment, elle presse. Écoute, retiens, désamorce. Huit minutes.">
+  <meta name="theme-color" content="#060708">
+  <meta name="color-scheme" content="dark">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <!-- Écran de chargement : CSS en ligne, visible dès le premier octet -->
+  <style>
+    #boot { position: fixed; inset: 0; z-index: 1000; display: grid; place-content: center; justify-items: center; gap: 14px; padding: 24px;
+      background: radial-gradient(circle at 50% 40%, #101318 0, #060708 62%); color: #dce9f4; font: 500 15px/1.4 system-ui, sans-serif; text-align: center;
+      transition: opacity .35s ease-out; }
+    #boot.gone { opacity: 0; pointer-events: none; }
+    #boot[hidden] { display: none; }
+    .b-eye { position: relative; width: 132px; height: 132px; margin-bottom: 8px; }
+    .b-eye i { position: absolute; inset: 0; border-radius: 50%; border: 3px dotted #62d6ff; opacity: .85; animation: b-spin 6s linear infinite; }
+    .b-eye i:nth-child(2) { inset: 16px; border-width: 2px; opacity: .6; animation-duration: 4s; animation-direction: reverse; }
+    .b-eye i:nth-child(3) { inset: 32px; border-width: 4px; border-style: dotted; opacity: .9; animation-duration: 2.6s; }
+    .b-eye b { position: absolute; inset: 50px; border-radius: 50%; background: #000; box-shadow: 0 0 0 3px #0e3a55, 0 0 22px 6px rgb(98 214 255 / .55); animation: b-pulse 1.6s ease-in-out infinite; }
+    .b-title { margin: 0; font-size: 17px; letter-spacing: .04em; }
+    .b-bar { position: relative; width: min(78vw, 300px); height: 10px; border-radius: 6px; overflow: hidden;
+      background: radial-gradient(circle, rgb(98 214 255 / .22) 1.6px, transparent 2px) 0 50% / 8px 8px repeat-x, #031422; box-shadow: inset 0 0 0 1px rgb(98 214 255 / .25); }
+    .b-fill { position: absolute; inset: 0; transform-origin: 0 50%; transform: scaleX(0); transition: transform .3s ease-out;
+      background: radial-gradient(circle, #9ee8ff 1.8px, transparent 2.3px) 0 50% / 8px 8px repeat-x, rgb(98 214 255 / .35); box-shadow: 0 0 12px #62d6ff; }
+    .b-scan { position: absolute; top: 0; bottom: 0; width: 34%; background: linear-gradient(90deg, transparent, rgb(200 245 255 / .55), transparent); animation: b-scan 1.3s linear infinite; }
+    .b-pct { margin: 0; font: 500 22px/1 ui-monospace, monospace; color: #62d6ff; font-variant-numeric: tabular-nums; min-height: 22px; }
+    .b-sub { margin: 0; font-size: 13px; color: #8aa4b8; min-height: 18px; }
+    .b-err { margin: 0; color: #ffb3ab; max-width: 30ch; }
+    .b-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .b-actions[hidden], .b-err[hidden] { display: none; }
+    .b-btn { min-height: 44px; padding: 0 18px; border-radius: 22px; border: 1px solid #62d6ff; background: rgb(98 214 255 / .12); color: #e9f8ff; font: inherit; cursor: pointer; }
+    .b-btn.alt { border-color: rgb(220 233 244 / .3); background: none; color: #b7c8d6; }
+    @keyframes b-spin { to { transform: rotate(1turn); } }
+    @keyframes b-pulse { 50% { transform: scale(.82); } }
+    @keyframes b-scan { from { transform: translateX(-100%); } to { transform: translateX(300%); } }
+    @media (prefers-reduced-motion: reduce) { .b-eye i { animation-duration: 30s; } .b-scan { animation-duration: 3s; } .b-eye b { animation: none; } }
+  </style>
+  <link rel="stylesheet" href="css/app.css?v=0.2.6a" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/app.css?v=0.2.6a"></noscript>
+  <link rel="modulepreload" href="js/eye.js?v=0.2.6a">
+  <link rel="modulepreload" href="js/eye-config.js?v=0.2.6a">
+  <link rel="modulepreload" href="js/game.js?v=0.2.6a">
+  <link rel="modulepreload" href="js/audio.js?v=0.2.6a">
+  <link rel="modulepreload" href="js/sfx.js?v=0.2.6a">
+  <link rel="modulepreload" href="js/voice-manifest.js?v=0.2.6a">
+  <link rel="modulepreload" href="js/preload.js?v=0.2.6a">
+  <link rel="modulepreload" href="js/panel-config.js?v=0.2.6a">
+  <link rel="modulepreload" href="js/battery.js?v=0.2.6a">
+  <link rel="modulepreload" href="js/guide.js?v=0.2.6a">
+  <script type="module" src="js/app.js?v=0.2.6a"></script>
+</head>
+<body>
+  <div id="boot" aria-live="polite">
+    <div class="b-eye" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
+    <p class="b-title" id="bootTitle">Chargement de l'Entité…</p>
+    <div class="b-bar" id="bootBar" role="progressbar" aria-labelledby="bootTitle" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="b-fill" id="bootFill"></span><span class="b-scan"></span></div>
+    <p class="b-pct"><span id="bootPct">0</span> %</p>
+    <p class="b-sub" id="bootSub">code de la mallette</p>
+    <p class="b-err" id="bootErr" hidden></p>
+    <div class="b-actions" id="bootActions" hidden>
+      <button class="b-btn" id="bootRetry" type="button">Réessayer</button>
+      <button class="b-btn alt" id="bootSkip" type="button">Continuer sans</button>
+    </div>
+  </div>
+  <script>
+    // % réel en deux phases : code (CSS + modules, 15 %) mesuré par PerformanceObserver, puis médias (85 %) par preload.js
+    (function () {
+      var CODE_BYTES = 118000, $ = function (id) { return document.getElementById(id); };
+      var B = window.__boot = { code: 0, asset: 0, shown: 0, ready: false };
+      B.paint = function () {
+        var f = Math.min(1, B.code * 0.15 + B.asset * 0.85);
+        if (f < B.shown) f = B.shown; // jamais de recul
+        B.shown = f;
+        var p = Math.floor(f * 100);
+        $('bootPct').textContent = p; $('bootBar').setAttribute('aria-valuenow', p);
+        $('bootFill').style.transform = 'scaleX(' + f + ')';
+      };
+      B.problem = function (msg, canSkip) {
+        $('bootErr').textContent = msg; $('bootErr').hidden = false;
+        $('bootActions').hidden = false; $('bootSkip').hidden = !canSkip;
+      };
+      // Réessayer (code bloqué) : désinscrit le service worker de CETTE app et vide ses anciens caches (jamais les archives
+      // entite-mallette-v015- / v016-), puis recharge. app.js remplace ce bouton par sa propre reprise une fois chargé.
+      B.purge = function () {
+        var dir = location.pathname.replace(/[^/]*$/, ''), jobs = [];
+        try {
+          if (navigator.serviceWorker) jobs.push(navigator.serviceWorker.getRegistrations().then(function (rs) { return Promise.all(rs.filter(function (r) { return new URL(r.scope).pathname === dir; }).map(function (r) { return r.unregister(); })); }));
+          if (window.caches) jobs.push(caches.keys().then(function (ks) { return Promise.all(ks.filter(function (k) { return k.indexOf('entite-mallette-v026a-') === 0; }).map(function (k) { return caches.delete(k); })); }));
+        } catch (e) { /* rien à purger */ }
+        return Promise.all(jobs).catch(function () {});
+      };
+      $('bootRetry').onclick = function () { B.purge().then(function () { location.reload(); }); };
+      // service worker enregistré dès le boot (sans cache HTTP) : un vieux SW se met à jour même si un module plante
+      try { if ('serviceWorker' in navigator && location.protocol !== 'file:') navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).catch(function () {}); } catch (e) { /* pas de SW */ }
+      // un module qui ne se charge pas (erreur de syntaxe / d'export) : on le dit tout de suite au lieu de rester bloqué
+      window.addEventListener('error', function (ev) {
+        if (B.ready) return;
+        var src = (ev && (ev.filename || (ev.target && ev.target.src))) || '';
+        if (/\/js\//.test(src) || /SyntaxError|import|export|module/i.test((ev && ev.message) || '')) B.problem('Le code de la mallette n\'a pas pu démarrer (ancienne version en cache). Touche « Réessayer » : on vide le cache et on recharge.', false);
+      }, true);
+      try {
+        var seen = 0;
+        new PerformanceObserver(function (list) {
+          list.getEntries().forEach(function (e) { if (/\/(css|js)\//.test(e.name)) seen += e.encodedBodySize || e.transferSize || 0; });
+          if (!B.ready) { B.code = Math.min(0.99, seen / CODE_BYTES); B.paint(); }
+        }).observe({ type: 'resource', buffered: true });
+      } catch (e) { /* vieux navigateur : l'animation suffit */ }
+      // le code n'arrive pas du tout (réseau coupé) : message + Réessayer
+      setTimeout(function () { if (!B.ready) B.problem('Le réseau est très lent ou coupé : le code de la mallette n\'arrive pas.', false); }, 25000);
+    })();
+  </script>
+  <a class="skip" href="#case">Aller à la mallette</a>
+
+  <!-- Accueil -->
+  <div class="intro" id="intro">
+    <div class="intro-case" aria-hidden="true"><span class="intro-handle"></span><span class="intro-shell"><span class="intro-latch"></span><span class="intro-latch"></span><span class="pc17">PC17</span></span></div>
+    <h1 class="intro-title">La mallette<br>de l’Entité</h1>
+    <p class="intro-lead">Elle dicte. Elle ment. Elle presse.<br>Écoute, retiens, désamorce.</p>
+    <button class="btn-primary" id="btnStart" type="button" disabled>Ouvrir la mallette</button>
+    <button class="btn-ghost help-btn" id="btnHelp" type="button" aria-label="Comment jouer"><span aria-hidden="true">?</span> Comment jouer</button>
+    <p class="intro-note">Monte le son : tout est dicté à voix haute.<br>Œil rouge : ce qu’elle dit est faux.</p>
+    <p class="intro-meta"><span>PassCool_17</span> · v<span id="ver"></span><span id="seedTag" hidden></span> · Lykus HC-3010</p>
+  </div>
+
+  <div class="app" id="app" hidden>
+    <header class="hud" id="hud">
+      <div class="hud-row">
+        <div class="tm" role="timer" aria-label="Temps restant"><span class="tm-digits" id="timer">8:00</span></div>
+        <div class="hud-meta hud-prob">
+          <span class="hud-label">prob. échec</span><output class="hud-val" id="prob">99,7 %</output>
+        </div>
+        <div class="hud-meta">
+          <span class="hud-label">étape</span><output class="hud-val" id="stepNo">—</output>
+        </div>
+        <div class="obj" id="objective" aria-live="polite"><span class="obj-label" id="objLabel">Objectif</span><span class="obj-text" id="objText">Ouvre la mallette.</span></div>
+        <button class="hint-btn" id="btnHint" type="button" disabled aria-label="Indice"><span class="hint-name">Indice</span><span class="hint-cost" id="hintCost">gratuit</span></button>
+        <button class="icon-btn" id="btnSon" type="button" aria-pressed="false" aria-label="Couper le son">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-spk" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="i-on" d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.8 7.8 0 0 1 0 11"/><path class="i-off" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
+        </button>
+        <button class="icon-btn" id="btnFs" type="button" aria-pressed="false" aria-label="Plein écran" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-in" d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/><path class="i-out" d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="case" id="case">
+      <h2 class="sr-only" id="faceTitle">Mallette ouverte</h2>
+
+      <!-- MALLETTE ouverte : tout est à l'intérieur (couvercle 32 mm + base 83 mm), rien sur la coque -->
+      <section class="face open" id="face-mallette" aria-labelledby="faceTitle">
+        <div class="lid shell" aria-label="Couvercle intérieur">
+          <div class="lid-panel panel">
+            <span class="bolt tl"></span><span class="bolt tr"></span><span class="bolt bl"></span><span class="bolt br"></span>
+            <div class="lid-hero">
+              <div class="spk spk-l" aria-hidden="true"><span class="spk-cone"></span><span class="silk">SPK-L · 3 W</span></div>
+              <div class="cyd cyd1" id="cyd1">
+                <span class="pcb-tag" aria-hidden="true">CYD 1</span>
+                <div class="screen"><canvas id="eye" aria-hidden="true"></canvas><p class="caption" id="caption" aria-live="polite"></p></div>
+              </div>
+              <div class="spk spk-r" aria-hidden="true"><span class="spk-cone"></span><span class="silk">SPK-R · 3 W</span></div>
+            </div>
+            <div class="ws" aria-label="Barre lumineuse WS2812B, 32 LED en 8 groupes de 4"><div class="ws-nums" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div><div class="ws-leds ws-bar" id="bar" role="img" aria-label="Barre lumineuse éteinte"><span class="ws-group" data-p="1"><i data-led="1"></i><i data-led="2"></i><i data-led="3"></i><i data-led="4"></i></span><span class="ws-group" data-p="2"><i data-led="5"></i><i data-led="6"></i><i data-led="7"></i><i data-led="8"></i></span><span class="ws-group" data-p="3"><i data-led="9"></i><i data-led="10"></i><i data-led="11"></i><i data-led="12"></i></span><span class="ws-group" data-p="4"><i data-led="13"></i><i data-led="14"></i><i data-led="15"></i><i data-led="16"></i></span><span class="ws-group" data-p="5"><i data-led="17"></i><i data-led="18"></i><i data-led="19"></i><i data-led="20"></i></span><span class="ws-group" data-p="6"><i data-led="21"></i><i data-led="22"></i><i data-led="23"></i><i data-led="24"></i></span><span class="ws-group" data-p="7"><i data-led="25"></i><i data-led="26"></i><i data-led="27"></i><i data-led="28"></i></span><span class="ws-group" data-p="8"><i data-led="29"></i><i data-led="30"></i><i data-led="31"></i><i data-led="32"></i></span></div><span class="silk">WS2812B · 32 LED</span></div>
+            <div class="lid-ctrls">
+              <button class="pocket" id="btnPocket" type="button" aria-haspopup="dialog"><span class="pocket-card" aria-hidden="true"></span><span class="silk">POCHETTE</span></button>
+            </div>
+            <div class="patchbay"><div class="jacks" id="jacks" role="group" aria-label="Baie banane : cinq prises, n'importe quel câble dans n'importe quelle prise"></div><span class="silk">KEADIC · 5 DOUILLES</span></div>
+          </div>
+        </div>
+        <div class="base shell" aria-label="Base">
+          <div class="base-panel panel">
+            <span class="bolt tl"></span><span class="bolt tr"></span><span class="bolt bl"></span><span class="bolt br"></span>
+            <div class="ports" id="ports" role="group" aria-label="Cinq câbles banane ancrés sur la base"></div>
+            <div class="col col-a">
+            <div class="mod mod-enc">
+              <div class="enc-head">
+                <div class="tm tm-small" aria-hidden="true"><span class="tm-digits" id="tm2">8:00</span></div>
+                <div class="oled" id="oled" aria-live="off"><canvas id="oledCanvas" width="128" height="64" aria-hidden="true"></canvas><span class="sr-only" id="oledText"></span></div>
+              </div>
+              <div class="enc-row" id="encRow"></div>
+              <span class="silk">KY-040 ×4 · 20 CRANS · TOURNE · CLIQUE</span>
+            </div>
+            <div class="mod mod-toggles" role="group" aria-label="Interrupteurs à capot">
+              <div class="gtoggle blue" id="gtArm">
+                <div class="gt-body">
+                  <span class="gt-led" aria-hidden="true"></span>
+                  <button class="gt-lever" id="leverArm" type="button" role="switch" aria-checked="false" aria-label="Levier bleu d’armement" disabled><span class="gt-bat"></span></button>
+                  <button class="gt-cover" id="coverArm" type="button" aria-expanded="false" aria-label="Lever le capot bleu d’armement"><span class="gt-lid"><span>ARM</span></span></button>
+                </div>
+                <span class="silk">ARM</span>
+              </div>
+              <div class="gtoggle red" id="gtTx">
+                <div class="gt-body">
+                  <span class="gt-led" aria-hidden="true"></span>
+                  <button class="gt-lever" id="leverTx" type="button" role="switch" aria-checked="false" aria-label="Levier rouge TRANSMIT" disabled><span class="gt-bat"></span></button>
+                  <button class="gt-cover" id="coverTx" type="button" aria-expanded="false" aria-label="Lever le capot rouge TRANSMIT"><span class="gt-lid"><span>TRANSMIT</span></span></button>
+                </div>
+                <span class="silk">TRANSMIT</span>
+              </div>
+            </div>
+            </div>
+            <div class="col col-b">
+            <div class="mod mod-keypad">
+              <div class="keypad" id="keypad" role="group" aria-label="Clavier 4×4"></div>
+              <span class="silk">CLAVIER MEMBRANE 4×4</span>
+            </div>
+            <div class="mod mod-traps">
+              <div class="traps" id="traps"></div>
+              <span class="silk">SG90 · TRAPPES</span>
+            </div>
+            </div>
+            <div class="col col-c">
+            <div class="mod mod-signal">
+              <div class="cyd cyd2"><span class="pcb-tag" aria-hidden="true">CYD 2</span><div class="screen"><canvas id="cyd2" width="240" height="180" role="img" aria-label="Écran 2 : numéro de série"></canvas><div class="cyd2-hud" id="cyd2Hud"><div class="cyd2-serial" id="serialReadout"><span class="cyd2-slabel">N° SÉRIE</span><span class="cyd2-snum" id="serial">———-———</span><span class="cyd2-slot" id="lot">LOT ———</span></div><button class="cyd2-replay" id="btnReplay" type="button" aria-label="Réécouter la dernière consigne" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5"/></svg><span>RÉÉCOUTER</span></button></div><div class="batt" id="batt" role="img" aria-label="Batterie"><span class="batt-ico" aria-hidden="true"><i></i></span><span class="batt-txt" aria-hidden="true"><b id="battPct">— %</b><small id="battV">— V</small></span></div></div></div>
+              <div class="joy" id="joy" role="group" aria-label="Joystick">
+                <div class="joy-well"><span class="joy-cap" id="joyCap"></span></div>
+                <button class="joy-dir up" type="button" data-dir="up" aria-label="Haut"></button>
+                <button class="joy-dir right" type="button" data-dir="right" aria-label="Droite"></button>
+                <button class="joy-dir down" type="button" data-dir="down" aria-label="Bas"></button>
+                <button class="joy-dir left" type="button" data-dir="left" aria-label="Gauche"></button>
+              </div>
+            </div>
+            <div class="mod mod-keys">
+              <div class="key-row" id="keyRow" role="group" aria-label="Serrures à clé Gebildet">
+                <div class="lock key" data-key="0"><button class="lock-btn" type="button" aria-pressed="false" aria-label="Serrure I" disabled><span class="lock-face"><span class="lock-slot"></span></span></button><span class="dots" aria-hidden="true"><i class="dr"></i><i class="dg"></i></span><span class="silk">I</span></div>
+                <div class="lock key" data-key="1"><button class="lock-btn" type="button" aria-pressed="false" aria-label="Serrure II" disabled><span class="lock-face"><span class="lock-slot"></span></span></button><span class="dots" aria-hidden="true"><i class="dr"></i><i class="dg"></i></span><span class="silk">II</span></div>
+                <div class="lock key" data-key="2"><button class="lock-btn" type="button" aria-pressed="false" aria-label="Serrure III" disabled><span class="lock-face"><span class="lock-slot"></span></span></button><span class="dots" aria-hidden="true"><i class="dr"></i><i class="dg"></i></span><span class="silk">III</span></div>
+              </div>
+              <span class="silk">GEBILDET · SERRURES</span>
+            </div>
+            </div>
+          </div>
+        </div>
+        <svg class="cables" id="cables" aria-hidden="true"></svg>
+      </section>
+    </main>
+    <button class="scroll-pill" id="scrollPill" type="button" aria-label="Défiler vers les commandes du bas" hidden>↓ COMMANDES</button>
+  </div>
+
+  <dialog class="pocket-dlg" id="pocketDlg" aria-labelledby="pocketTitle">
+    <form method="dialog" class="note-card">
+      <h2 id="pocketTitle">Note tactique</h2>
+      <ul>
+        <li>Elle dicte tout. Écoute, retiens.</li>
+        <li>Œil rouge : elle ment. Ignore.</li>
+        <li>Le n° de série s’affiche sur l’écran du bas.</li>
+        <li>La barre lumineuse parle aussi.</li>
+        <li>Une consigne ratée : Réécouter, sur l’écran du bas.</li>
+        <li>Capot rouge : seulement à la toute fin.</li>
+      </ul>
+      <button class="btn-ghost" value="ok">Ranger</button>
+    </form>
+  </dialog>
+
+  <div class="tuto" id="tuto" hidden role="dialog" aria-modal="true" aria-labelledby="tutoTitle">
+    <div class="tuto-card">
+      <p class="tuto-kicker"><span id="tutoNo">1</span> / 5 · Comment jouer</p>
+      <h2 class="tuto-title" id="tutoTitle"></h2>
+      <p class="tuto-body" id="tutoBody"></p>
+      <div class="tuto-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="tuto-actions"><button class="btn-ghost" id="tutoSkip" type="button">Passer</button><button class="btn-primary" id="tutoNext" type="button">Suivant</button></div>
+    </div>
+  </div>
+  <div class="end" id="end" hidden role="dialog" aria-modal="true" aria-labelledby="endTitle">
+    <div class="end-card">
+      <p class="end-kicker" id="endKicker"></p>
+      <h2 class="end-title" id="endTitle"></h2>
+      <p class="end-sub" id="endSub"></p>
+      <button class="btn-primary" id="btnAgain" type="button">Rejouer</button>
+    </div>
+  </div>
+</body>
+</html>

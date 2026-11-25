@@ -1,0 +1,12 @@
+# image de référence (photogramme de film) : usage interne, pas publiée
+ref/
+shots/comparaison-*.png
+node_modules/
+shots/
+voix/raw/
+voix/REPRISE.txt
+voix/verification.json
+voix/_test/
+qa-out/
+playwright-report/
+test-results/

@@ -1,0 +1,12 @@
+{
+  "name": "entite-mallette",
+  "private": true,
+  "type": "module",
+  "description": "Outils de test (Playwright). Pas utilisé par le jeu servi sur GitHub Pages.",
+  "scripts": {
+    "qa": "node tests/fullrun.mjs --qa"
+  },
+  "devDependencies": {
+    "playwright": "^1.65.1"
+  }
+}

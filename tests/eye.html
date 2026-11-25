@@ -1,0 +1,9 @@
+<!doctype html><meta charset=utf-8><link rel=icon href="data:,"><style>html,body{margin:0;background:#000}canvas{display:block;width:100vw;height:100vh}</style>
+<canvas id=c></canvas><script type=module>
+import {createEye} from '../js/eye.js';
+import {EYE, deepMerge} from '../js/eye-config.js';
+const q=new URLSearchParams(location.search);
+const cfg = q.has('icon') ? deepMerge(EYE,{radiusOfMin:+q.get('icon'), radiusOfHeight:+q.get('icon'), blocks:{count:20}}) : q.has('ref') ? deepMerge(EYE,{radiusOfMin:0.3, radiusOfHeight:0.235, center:{x:0.395,y:0.54}}) : EYE;
+const e=createEye(document.getElementById('c'),{config:cfg});window.eye=e;e.start();
+if(q.get('mood')) e.setMood(q.get('mood'));
+</script>
